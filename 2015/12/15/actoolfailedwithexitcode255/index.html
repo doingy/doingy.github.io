@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="iOS," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="杨冬青的笔记" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="在使用Xcode7.2的[Editor][Show Slicing]拉伸图片之后，Xcode6.4报错不能运行。错误信息12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747">
+<meta property="og:type" content="article">
+<meta property="og:title" content="actoolfailedwithexitcode255">
+<meta property="og:url" content="http://yangdq.com/2015/12/15/actoolfailedwithexitcode255/index.html">
+<meta property="og:site_name" content="杨冬青的笔记">
+<meta property="og:description" content="在使用Xcode7.2的[Editor][Show Slicing]拉伸图片之后，Xcode6.4报错不能运行。错误信息12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747">
+<meta property="og:updated_time" content="2017-10-19T11:57:47.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="actoolfailedwithexitcode255">
+<meta name="twitter:description" content="在使用Xcode7.2的[Editor][Show Slicing]拉伸图片之后，Xcode6.4报错不能运行。错误信息12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yangdq.com/2015/12/15/actoolfailedwithexitcode255/"/>
+
+
+
+
+
+  <title>actoolfailedwithexitcode255 | 杨冬青的笔记</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?a51c89f277e2039f002626c668bb723e";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">杨冬青的笔记</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">技术成就未来</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yangdq.com/2015/12/15/actoolfailedwithexitcode255/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杨冬青">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://7xq1mp.com1.z0.glb.clouddn.com/100.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="杨冬青的笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">actoolfailedwithexitcode255</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-12-15T17:49:16+08:00">
+                2015-12-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/12/15/actoolfailedwithexitcode255/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/15/actoolfailedwithexitcode255/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2015/12/15/actoolfailedwithexitcode255/" class="leancloud_visitors" data-flag-title="actoolfailedwithexitcode255">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在使用Xcode7.2的[Editor][Show Slicing]拉伸图片之后，Xcode6.4报错不能运行。<br>错误信息<br><figure class="highlight elm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div></pre></td><td class="code"><pre><div class="line"><span class="type">CompileAssetCatalog</span> /<span class="type">Assets</span>.xcassets</div><div class="line">    cd /<span class="type">Users</span>/<span class="type">Ric</span>/<span class="type">Desktop</span>/<span class="type">Project</span></div><div class="line">    ex<span class="keyword">port</span> PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"</div><div class="line">    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/actool <span class="comment">--output-format human-readable-text --notices --warnings --export-dependency-info /Users/Ric/Library/Developer/Xcode/DerivedData/MonsterEnglish-hhdxvblrjrfhnscggtknhydkafwb/Build/Intermediates/MonsterEnglish.build/Debug-iphonesimulator/MonsterEnglish.build/assetcatalog_dependencies.txt --output-partial-info-plist /Users/Ric/Library/Developer/Xcode/DerivedData/MonsterEnglish-hhdxvblrjrfhnscggtknhydkafwb/Build/Intermediates/MonsterEnglish.build/Debug-iphonesimulator/MonsterEnglish.build/assetcatalog_generated_info.plist --app-icon AppIcon --launch-image LaunchImage --platform iphonesimulator --minimum-deployment-target 7.0 --target-device iphone --target-device ipad --compress-pngs --compile /Users/Ric/Library/Developer/Xcode/DerivedData/MonsterEnglish-hhdxvblrjrfhnscggtknhydkafwb/Build/Products/Debug-iphonesimulator/MonsterEnglish.app /Users/Ric/Desktop/Project/MonsterEnglish/Assets.xcassets</span></div><div class="line">*** First throw call stack:</div><div class="line">2015-12-15 14:02:06.042 IBCocoaTouchImageCatalogTool[8900:156305] *** Terminating app due to uncaught exception 'IBAssertionFailure', reason: 'ASSERTION FAILURE:</div><div class="line">Reason:     code which should be unreachable has been reached</div><div class="line">File:       /SourceCache/IBAutolayoutFoundationIOS/IDEInterfaceBuilder-7706/Foundation/ImageCatalog/Compiler/IBICCoreThemeDocument.m:349</div><div class="line">Method:     -[IBICCoreThemeDocument coreUIResizingModeForResizingBehavior:]'</div><div class="line">*** First throw call stack:</div><div class="line">(</div><div class="line">	0   <span class="type">CoreFoundation</span>                      0x000000010716ec65 __exceptionPreprocess + 165</div><div class="line">	1   libobjc.<span class="type">A</span>.dylib                     0x00000001067eabb7 objc_exception_throw + 45</div><div class="line">	2   <span class="type">CoreFoundation</span>                      0x000000010716e8a9 -[<span class="type">NSException</span> raise] + 9</div><div class="line">	3   <span class="type">IBFoundation</span>                        0x00000001067109fb -[<span class="type">IBICCoreThemeDocument</span> coreUIResizingModeForResizingBehavior:] + 176</div><div class="line">	4   <span class="type">IBFoundation</span>                        0x00000001067118cf -[<span class="type">IBICCoreThemeDocument</span> setContent:completionHandler:] + 2879</div><div class="line">	5   <span class="type">IBFoundation</span>                        0x000000010670532d -[<span class="type">IBICCatalogCARCompiler</span> compileImageReps:options:queue:completionHandler:] + 1133</div><div class="line">	6   <span class="type">IBCocoaTouchImageCatalogTool</span>        0x00000001061a5bea <span class="type">IBCocoaTouchImageCatalogTool</span> + 7146</div><div class="line">	7   <span class="type">IBCocoaTouchImageCatalogTool</span>        0x00000001061a60fd <span class="type">IBCocoaTouchImageCatalogTool</span> + 8445</div><div class="line">	8   libdispatch.dylib                   0x0000000107dbef16 _dispatch_call_block_and_release + 12</div><div class="line">	9   libdispatch.dylib                   0x0000000107dd9964 _dispatch_client_callout + 8</div><div class="line">	10  libdispatch.dylib                   0x0000000107dc4a59 _dispatch_main_queue_callback_4CF + 704</div><div class="line">	11  <span class="type">CoreFoundation</span>                      0x00000001070d61f9 __CFRUNLOOP_IS_SERVICING_THE_MAIN_DISPATCH_QUEUE__ + 9</div><div class="line">	12  <span class="type">CoreFoundation</span>                      0x0000000107097dcb __CFRunLoopRun + 2043</div><div class="line">	13  <span class="type">CoreFoundation</span>                      0x0000000107097366 <span class="type">CFRunLoopRunSpecific</span> + 470</div><div class="line">	14  <span class="type">Foundation</span>                          0x0000000106286f92 -[<span class="type">NSRunLoop(NSRunLoop)</span> runMode:beforeDate:] + 275</div><div class="line">	15  <span class="type">IBFoundation</span>                        0x000000010672ec20 -[<span class="type">IBAbstractPlatformTool</span> startServingReceiveChannel:] + 345</div><div class="line">	16  <span class="type">IBFoundation</span>                        0x000000010672edaf -[<span class="type">IBAbstractPlatformTool</span> startServingSocket:] + 106</div><div class="line">	17  <span class="type">IBFoundation</span>                        0x000000010672f072 +[<span class="type">IBAbstractPlatformTool</span> main] + 220</div><div class="line">	18  <span class="type">IBCocoaTouchImageCatalogTool</span>        0x00000001061a6b3d <span class="type">IBCocoaTouchImageCatalogTool</span> + 11069</div><div class="line">	19  <span class="type">IBCocoaTouchImageCatalogTool</span>        0x00000001061aeec4 <span class="type">IBCocoaTouchImageCatalogTool</span> + 44740</div><div class="line">	20  libdyld.dylib                       0x0000000107e09145 start + 1</div><div class="line">	21  ???                                 0x0000000000000003 0x0 + 3</div><div class="line">)</div><div class="line">libc++abi.dylib: terminating with uncaught exception of type NSException</div><div class="line">2015-12-15 14:02:07.822 ibtoold[8898:156257] An uncaught exception was raised</div><div class="line">2015-12-15 14:02:07.823 ibtoold[8898:156257] Interface Builder Cocoa Touch Tool crashed</div><div class="line"></div><div class="line">Application Specific Information:</div><div class="line">*** Terminating app due to uncaught exception 'IBAssertionFailure', reason: 'ASSERTION FAILURE:</div><div class="line">Reason:     code which should be unreachable has been reached</div><div class="line">File:       /SourceCache/IBAutolayoutFoundationIOS/IDEInterfaceBuilder-7706/Foundation/ImageCatalog/Compiler/IBICCoreThemeDocument.m:349</div><div class="line">Method:     -[IBICCoreThemeDocument coreUIResizingModeForResizingBehavior:]'</div><div class="line">terminating with uncaught exception of type NSException</div><div class="line">abort() called</div><div class="line">(</div><div class="line">	0   <span class="type">CoreFoundation</span>                      0x00007fff84d4e03c __exceptionPreprocess + 172</div><div class="line">	1   libobjc.<span class="type">A</span>.dylib                     0x00007fff88bba76e objc_exception_throw + 43</div><div class="line">	2   <span class="type">CoreFoundation</span>                      0x00007fff84d4dbd9 -[<span class="type">NSException</span> raise] + 9</div><div class="line">	3   <span class="type">IDEInterfaceBuilderKit</span>              0x0000000101dcb9b2 -[<span class="type">IBAbstractMessageChannelToolProxy</span> _errorByAddingAdditionalCrashInformationToError:orRaiseIfNeededOnFailure:shouldRaiseOnFailures:waitForCrashLog:] + 1497</div><div class="line">	4   <span class="type">IDEInterfaceBuilderKit</span>              0x0000000101dcb3af -[<span class="type">IBAbstractMessageChannelToolProxy</span> errorByAddingAdditionalCrashInformationToError:orRaiseIfNeededOnFailure:] + 98</div><div class="line">	5   <span class="type">IDEInterfaceBuilderCocoaTouchIntegration</span> 0x000000010746bf14 <span class="type">IBUISegmentConfiguration</span> + 6690</div><div class="line">	6   <span class="type">IDEInterfaceBuilderCocoaTouchIntegration</span> 0x0000000107456d3b <span class="type">IBUIControlEventTypeToUIControlEventMask</span> + 15528</div><div class="line">	7   <span class="type">IDEInterfaceBuilderCocoaTouchIntegration</span> 0x00000001074574f6 <span class="type">IBUIControlEventTypeToUIControlEventMask</span> + 17507</div><div class="line">	8   libdispatch.dylib                   0x00007fff8dcc3700 _dispatch_call_block_and_release + 12</div><div class="line">	9   libdispatch.dylib                   0x00007fff8dcbfe73 _dispatch_client_callout + 8</div><div class="line">	10  libdispatch.dylib                   0x00007fff8dcd0767 _dispatch_main_queue_callback_4CF + 861</div><div class="line">	11  <span class="type">CoreFoundation</span>                      0x00007fff84ca13f9 __CFRUNLOOP_IS_SERVICING_THE_MAIN_DISPATCH_QUEUE__ + 9</div><div class="line">	12  <span class="type">CoreFoundation</span>                      0x00007fff84c5c68f __CFRunLoopRun + 2159</div><div class="line">	13  <span class="type">CoreFoundation</span>                      0x00007fff84c5bbd8 <span class="type">CFRunLoopRunSpecific</span> + 296</div><div class="line">	14  <span class="type">IDEInterfaceBuilderKit</span>              0x0000000101d9c6ac -[<span class="type">NSRunLoop(IBIDEFoundationRunLoopAdditions)</span> ib_spinRunLoopInMode:whileBlockExecutesConcurrently:] + 495</div><div class="line">	15  <span class="type">IDEInterfaceBuilderKit</span>              0x0000000101d9c8ba -[<span class="type">NSRunLoop(IBIDEFoundationRunLoopAdditions)</span> ib_spinRunLoopInMode:waitingForSemaphore:] + 131</div><div class="line">	16  ibtoold                             0x0000000100bec5b8 ibtoold + 9656</div><div class="line">	17  ibtoold                             0x0000000100bedcc6 ibtoold + 15558</div><div class="line">	18  ibtoold                             0x0000000100bee240 ibtoold + 16960</div><div class="line">	19  ibtoold                             0x0000000100bfc233 ibtoold + 74291</div><div class="line">	20  ibtoold                             0x0000000100bfc7b0 ibtoold + 75696</div><div class="line">	21  ibtoold                             0x0000000100bfc683 ibtoold + 75395</div><div class="line">	22  ibtoold                             0x0000000100beb66a ibtoold + 5738</div><div class="line">	23  ibtoold                             0x0000000100bfbe2c ibtoold + 73260</div><div class="line">	24  ibtoold                             0x0000000100bfb074 ibtoold + 69748</div><div class="line">	25  libdyld.dylib                       0x00007fff8c36b5c9 start + 1</div><div class="line">)</div><div class="line">libc++abi.dylib: terminating with uncaught exception of type NSException</div><div class="line">Command /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/actool failed with exit code 255</div></pre></td></tr></table></figure></p>
+<p>然后用Xcode6.4又重复操作了一遍，发现Xcode7.2和Xcode6.4生成的json文件不一样<br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">  <span class="string">"resizing"</span> : &#123;</div><div class="line"><span class="string">"mode"</span> : <span class="string">"3-part-horizontal"</span>,</div><div class="line"><span class="string">"center"</span> : &#123;</div><div class="line">  <span class="string">"mode"</span> : <span class="string">"tile"</span>,   <span class="comment">// 7.2      </span></div><div class="line">  <span class="string">"width"</span> : <span class="number">2</span>        <span class="comment">// 7.2</span></div><div class="line">  <span class="string">"mode"</span> : <span class="string">"fill"</span>,   <span class="comment">// 6.4</span></div><div class="line">  <span class="string">"width"</span> : <span class="number">1</span>        <span class="comment">// 6.4</span></div><div class="line">&#125;,</div><div class="line"><span class="string">"cap-insets"</span> : &#123;     <span class="comment">// 7.2</span></div><div class="line">  <span class="string">"right"</span> : <span class="number">60</span>,</div><div class="line">  <span class="string">"left"</span> : <span class="number">59</span></div><div class="line"><span class="string">"capInsets"</span> : &#123;      <span class="comment">// 6.4</span></div><div class="line">  <span class="string">"right"</span> : <span class="number">59</span>,</div><div class="line">  <span class="string">"left"</span> : <span class="number">63</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Xcode7改变了关键字名字，导致6.4不兼容</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag"># iOS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/11/02/scrollnav/" rel="next" title="添加到UIScrollView里的子控件位置显示不对">
+                <i class="fa fa-chevron-left"></i> 添加到UIScrollView里的子控件位置显示不对
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/01/13/error-itms-90096/" rel="prev" title="ERROR ITMS 90096">
+                ERROR ITMS 90096 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div class="ds-thread" data-thread-key="2015/12/15/actoolfailedwithexitcode255/"
+           data-title="actoolfailedwithexitcode255" data-url="http://yangdq.com/2015/12/15/actoolfailedwithexitcode255/">
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="http://7xq1mp.com1.z0.glb.clouddn.com/100.jpg"
+                alt="杨冬青" />
+            
+              <p class="site-author-name" itemprop="name">杨冬青</p>
+              <p class="site-description motion-element" itemprop="description">欲路上事, 毋乐其便而如为染指, 一染指便深入万仞;理路上事, 毋惮其难而稍为退步, 一退步便远隔千山。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">杨冬青</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"yangdq"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("AprJMziwfeE4JBqOdlCP29WO-gzGzoHsz", "O5xqfyMnUYP5C879ep1WYpl3");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
