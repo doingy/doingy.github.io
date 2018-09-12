@@ -81,12 +81,14 @@
 
 
 
-<meta name="description" content="今天同事遇到了一个奇怪的问题，添加到ScrollView里的控件的Y值不对，下移了64的距离。12345678- (void)viewDidLoad &amp;#123;    [super viewDidLoad];    // 加入如下代码解决问题	if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) &amp;#123;">
+<meta name="description" content="今天同事遇到了一个奇怪的问题，添加到ScrollView里的控件的Y值不对，下移了64的距离。12345678- (void)viewDidLoad &amp;#123;    [super viewDidLoad];    // 加入如下代码解决问题	if ([self respondsToSelector:@sel">
+<meta name="keywords" content="iOS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="添加到UIScrollView里的子控件位置显示不对">
 <meta property="og:url" content="http://yangdq.com/2015/11/02/scrollnav/index.html">
 <meta property="og:site_name" content="杨冬青的笔记">
 <meta property="og:description" content="今天同事遇到了一个奇怪的问题，添加到ScrollView里的控件的Y值不对，下移了64的距离。12345678- (void)viewDidLoad &amp;#123;    [super viewDidLoad];    // 加入如下代码解决问题	if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) &amp;#123;">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-10-19T11:57:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="添加到UIScrollView里的子控件位置显示不对">
@@ -352,7 +354,7 @@
 
       
         <p>今天同事遇到了一个奇怪的问题，添加到ScrollView里的控件的Y值不对，下移了64的距离。<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</div><div class="line">    [<span class="keyword">super</span> viewDidLoad];</div><div class="line"></div><div class="line">    <span class="comment">// 加入如下代码解决问题</span></div><div class="line">	<span class="keyword">if</span> ([<span class="keyword">self</span> respondsToSelector:<span class="keyword">@selector</span>(edgesForExtendedLayout)]) &#123;</div><div class="line">        <span class="keyword">self</span>.edgesForExtendedLayout = <span class="built_in">UIRectEdgeNone</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>解释<a href="http://stackoverflow.com/questions/17074365/status-bar-and-navigation-bar-appear-over-my-views-bounds-in-ios-7" target="_blank" rel="external">stackoverflow</a></p>
+<p>解释<a href="http://stackoverflow.com/questions/17074365/status-bar-and-navigation-bar-appear-over-my-views-bounds-in-ios-7" target="_blank" rel="noopener">stackoverflow</a></p>
 
       
     </div>
@@ -480,7 +482,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -548,7 +550,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -843,6 +845,8 @@
   </script>
 
 
+
+  
 
   
 

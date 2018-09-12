@@ -81,12 +81,14 @@
 
 
 
-<meta name="description" content="123Archive validation failed due to the issues listed below.iTunes Store operation failed.Unsupported Architectures. Your executable contains unsupported architectures &apos;[x86_64, i386]&apos;.">
+<meta name="description" content="123Archive validation failed due to the issues listed below.iTunes Store operation failed.Unsupported Architectures. Your executable contains unsupported archit">
+<meta name="keywords" content="iOS,Carthage">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Your executable contains unsupported architectures">
 <meta property="og:url" content="http://yangdq.com/2017/06/22/your-executable-contains-unsupported-architectures/index.html">
 <meta property="og:site_name" content="杨冬青的笔记">
 <meta property="og:description" content="123Archive validation failed due to the issues listed below.iTunes Store operation failed.Unsupported Architectures. Your executable contains unsupported architectures &apos;[x86_64, i386]&apos;.">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-10-19T11:57:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Your executable contains unsupported architectures">
@@ -377,7 +379,7 @@
 <a id="more"></a>
 <p>导航至[Build Phases]添加一个[Run Script]，内容如下。重新编译即可</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">APP_PATH=<span class="string">"<span class="variable">$&#123;TARGET_BUILD_DIR&#125;</span>/<span class="variable">$&#123;WRAPPER_NAME&#125;</span>"</span></div><div class="line"></div><div class="line"><span class="comment"># This script loops through the frameworks embedded in the application and</span></div><div class="line"><span class="comment"># removes unused architectures.</span></div><div class="line">find <span class="string">"<span class="variable">$APP_PATH</span>"</span> -name <span class="string">'*.framework'</span> -type d | <span class="keyword">while</span> <span class="built_in">read</span> -r FRAMEWORK</div><div class="line"><span class="keyword">do</span></div><div class="line">    FRAMEWORK_EXECUTABLE_NAME=$(defaults <span class="built_in">read</span> <span class="string">"<span class="variable">$FRAMEWORK</span>/Info.plist"</span> CFBundleExecutable)</div><div class="line">    FRAMEWORK_EXECUTABLE_PATH=<span class="string">"<span class="variable">$FRAMEWORK</span>/<span class="variable">$FRAMEWORK_EXECUTABLE_NAME</span>"</span></div><div class="line">    <span class="built_in">echo</span> <span class="string">"Executable is <span class="variable">$FRAMEWORK_EXECUTABLE_PATH</span>"</span></div><div class="line"></div><div class="line">    EXTRACTED_ARCHS=()</div><div class="line"></div><div class="line">    <span class="keyword">for</span> ARCH <span class="keyword">in</span> <span class="variable">$ARCHS</span></div><div class="line">    <span class="keyword">do</span></div><div class="line">        <span class="built_in">echo</span> <span class="string">"Extracting <span class="variable">$ARCH</span> from <span class="variable">$FRAMEWORK_EXECUTABLE_NAME</span>"</span></div><div class="line">        lipo -extract <span class="string">"<span class="variable">$ARCH</span>"</span> <span class="string">"<span class="variable">$FRAMEWORK_EXECUTABLE_PATH</span>"</span> -o <span class="string">"<span class="variable">$FRAMEWORK_EXECUTABLE_PATH</span>-<span class="variable">$ARCH</span>"</span></div><div class="line">        EXTRACTED_ARCHS+=(<span class="string">"<span class="variable">$FRAMEWORK_EXECUTABLE_PATH</span>-<span class="variable">$ARCH</span>"</span>)</div><div class="line">    <span class="keyword">done</span></div><div class="line"></div><div class="line">    <span class="built_in">echo</span> <span class="string">"Merging extracted architectures: <span class="variable">$&#123;ARCHS&#125;</span>"</span></div><div class="line">    lipo -o <span class="string">"<span class="variable">$FRAMEWORK_EXECUTABLE_PATH</span>-merged"</span> -create <span class="string">"<span class="variable">$&#123;EXTRACTED_ARCHS[@]&#125;</span>"</span></div><div class="line">    rm <span class="string">"<span class="variable">$&#123;EXTRACTED_ARCHS[@]&#125;</span>"</span></div><div class="line"></div><div class="line">    <span class="built_in">echo</span> <span class="string">"Replacing original executable with thinned version"</span></div><div class="line">    rm <span class="string">"<span class="variable">$FRAMEWORK_EXECUTABLE_PATH</span>"</span></div><div class="line">    mv <span class="string">"<span class="variable">$FRAMEWORK_EXECUTABLE_PATH</span>-merged"</span> <span class="string">"<span class="variable">$FRAMEWORK_EXECUTABLE_PATH</span>"</span></div><div class="line"></div><div class="line"><span class="keyword">done</span></div></pre></td></tr></table></figure>
-<p>参考<a href="http://ikennd.ac/blog/2015/02/stripping-unwanted-architectures-from-dynamic-libraries-in-xcode/" target="_blank" rel="external">Stripping Unwanted Architectures From Dynamic Libraries In Xcode</a></p>
+<p>参考<a href="http://ikennd.ac/blog/2015/02/stripping-unwanted-architectures-from-dynamic-libraries-in-xcode/" target="_blank" rel="noopener">Stripping Unwanted Architectures From Dynamic Libraries In Xcode</a></p>
 
       
     </div>
@@ -507,7 +509,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -575,7 +577,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -870,6 +872,8 @@
   </script>
 
 
+
+  
 
   
 

@@ -87,6 +87,7 @@
 <meta property="og:url" content="http://yangdq.com/page/3/index.html">
 <meta property="og:site_name" content="杨冬青的笔记">
 <meta property="og:description" content="欲路上事, 毋乐其便而如为染指, 一染指便深入万仞;理路上事, 毋惮其难而稍为退步, 一退步便远隔千山。">
+<meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="杨冬青的笔记">
 <meta name="twitter:description" content="欲路上事, 毋乐其便而如为染指, 一染指便深入万仞;理路上事, 毋惮其难而稍为退步, 一退步便远隔千山。">
@@ -249,6 +250,148 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yangdq.com/2015/11/02/scrollnav/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杨冬青">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://7xq1mp.com1.z0.glb.clouddn.com/100.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="杨冬青的笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/11/02/scrollnav/" itemprop="url">添加到UIScrollView里的子控件位置显示不对</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-11-02T16:49:54+08:00">
+                2015-11-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/11/02/scrollnav/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/02/scrollnav/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2015/11/02/scrollnav/" class="leancloud_visitors" data-flag-title="添加到UIScrollView里的子控件位置显示不对">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>今天同事遇到了一个奇怪的问题，添加到ScrollView里的控件的Y值不对，下移了64的距离。<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</div><div class="line">    [<span class="keyword">super</span> viewDidLoad];</div><div class="line"></div><div class="line">    <span class="comment">// 加入如下代码解决问题</span></div><div class="line">	<span class="keyword">if</span> ([<span class="keyword">self</span> respondsToSelector:<span class="keyword">@selector</span>(edgesForExtendedLayout)]) &#123;</div><div class="line">        <span class="keyword">self</span>.edgesForExtendedLayout = <span class="built_in">UIRectEdgeNone</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>解释<a href="http://stackoverflow.com/questions/17074365/status-bar-and-navigation-bar-appear-over-my-views-bounds-in-ios-7" target="_blank" rel="noopener">stackoverflow</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -926,8 +1069,8 @@
           
             <p>安装CocoaPods<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">gem sources --remove <span class="string">https:</span><span class="comment">//rubygems.org/</span></div><div class="line">gem sources -a <span class="string">https:</span><span class="comment">//ruby.taobao.org/</span></div><div class="line">sudo gem install cocoapods</div></pre></td></tr></table></figure></p>
 <p>安装CocoaPods遇到的问题</p>
-<p>1.Xcode7会遇到下面的问题是用淘宝的RubyGems<a href="http://ruby.taobao.org/" target="_blank" rel="external">http://ruby.taobao.org/</a>镜像造成的问题<br><figure class="highlight subunit"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">Error </span>fetching http://ruby.taobao.org/:</div><div class="line">	bad response Not Found 404 (http://ruby.taobao.org/specs.4.8.gz)</div></pre></td></tr></table></figure></p>
-<p>需要更改为地址<a href="https://ruby.taobao.org/" target="_blank" rel="external">https://ruby.taobao.org/</a><br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">gem sources -l</div><div class="line">gem sources --remove <span class="string">https:</span><span class="comment">//rubygems.org/</span></div><div class="line">gem sources -a <span class="string">https:</span><span class="comment">//ruby.taobao.org/</span></div><div class="line">gem sources -l</div></pre></td></tr></table></figure></p>
+<p>1.Xcode7会遇到下面的问题是用淘宝的RubyGems<a href="http://ruby.taobao.org/" target="_blank" rel="noopener">http://ruby.taobao.org/</a>镜像造成的问题<br><figure class="highlight subunit"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">Error </span>fetching http://ruby.taobao.org/:</div><div class="line">	bad response Not Found 404 (http://ruby.taobao.org/specs.4.8.gz)</div></pre></td></tr></table></figure></p>
+<p>需要更改为地址<a href="https://ruby.taobao.org/" target="_blank" rel="noopener">https://ruby.taobao.org/</a><br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">gem sources -l</div><div class="line">gem sources --remove <span class="string">https:</span><span class="comment">//rubygems.org/</span></div><div class="line">gem sources -a <span class="string">https:</span><span class="comment">//ruby.taobao.org/</span></div><div class="line">gem sources -l</div></pre></td></tr></table></figure></p>
 
           
         
@@ -1068,7 +1211,7 @@
       
         
           
-            <p>转自<a href="http://stackoverflow.com/questions/32808593/setstatusbarhidden-withanimation-deprecated-in-ios-9/32808743#32808743" target="_blank" rel="external">Leo</a><br>动态显示隐藏StatusBar状态</p>
+            <p>转自<a href="http://stackoverflow.com/questions/32808593/setstatusbarhidden-withanimation-deprecated-in-ios-9/32808743#32808743" target="_blank" rel="noopener">Leo</a><br>动态显示隐藏StatusBar状态</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ViewController</span>: <span class="title">UIViewController</span> </span>&#123;</div><div class="line">	<span class="keyword">var</span> isHidden:<span class="type">Bool</span> = <span class="literal">false</span></div><div class="line"></div><div class="line">	<span class="meta">@IBAction</span> <span class="function"><span class="keyword">func</span> <span class="title">clicked</span><span class="params">(sender: AnyObject)</span></span> &#123;</div><div class="line">    	isHidden = !isHidden</div><div class="line">    	<span class="type">UIView</span>.animateWithDuration(<span class="number">0.5</span>) &#123; () -&gt; <span class="type">Void</span> <span class="keyword">in</span></div><div class="line">        	<span class="keyword">self</span>.setNeedsStatusBarAppearanceUpdate()</div><div class="line">    	&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">preferredStatusBarUpdateAnimation</span><span class="params">()</span></span> -&gt; <span class="type">UIStatusBarAnimation</span> &#123;</div><div class="line">    	<span class="keyword">return</span> <span class="type">UIStatusBarAnimation</span>.<span class="type">Slide</span></div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">prefersStatusBarHidden</span><span class="params">()</span></span> -&gt; <span class="type">Bool</span> &#123;</div><div class="line">    	<span class="keyword">return</span> isHidden</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
           
         
@@ -1158,7 +1301,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1226,7 +1369,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -1517,6 +1660,8 @@
   </script>
 
 
+
+  
 
   
 

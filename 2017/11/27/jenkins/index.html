@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="iOS,Android,Jenkins,fastlane,coding.net,钉钉聊天机器人," />
+  <meta name="keywords" content="iOS,Jenkins,Android,fastlane,coding.net,钉钉聊天机器人," />
 
 
 
@@ -82,11 +82,13 @@
 
 
 <meta name="description" content="本文简单记录了搭建Jenkins持续集成服务的过程。">
+<meta name="keywords" content="iOS,Jenkins,Android,fastlane,coding.net,钉钉聊天机器人">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Jenkins持续集成，自动打包iOS，Android">
 <meta property="og:url" content="http://yangdq.com/2017/11/27/jenkins/index.html">
 <meta property="og:site_name" content="杨冬青的笔记">
 <meta property="og:description" content="本文简单记录了搭建Jenkins持续集成服务的过程。">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://7xq1mp.com1.z0.glb.clouddn.com/credentials-1.jpg">
 <meta property="og:image" content="http://7xq1mp.com1.z0.glb.clouddn.com/credentials-2.jpg">
 <meta property="og:image" content="http://7xq1mp.com1.z0.glb.clouddn.com/credentials-3.jpg">
@@ -101,7 +103,7 @@
 <meta property="og:image" content="http://7xq1mp.com1.z0.glb.clouddn.com/jenkins_new_project-8.jpg">
 <meta property="og:image" content="http://7xq1mp.com1.z0.glb.clouddn.com/jenkins_new_project-9.jpg">
 <meta property="og:image" content="http://7xq1mp.com1.z0.glb.clouddn.com/jenkins_new_project-10.jpg">
-<meta property="og:updated_time" content="2017-11-28T07:39:01.049Z">
+<meta property="og:updated_time" content="2017-11-28T07:39:01.040Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Jenkins持续集成，自动打包iOS，Android">
 <meta name="twitter:description" content="本文简单记录了搭建Jenkins持续集成服务的过程。">
@@ -394,12 +396,12 @@
 <li>macOS High Sierra v10.13.1(17B48) 因为要打包iOS，所以采用macOS</li>
 <li>Xcode v9.1(9B55)</li>
 <li>Java v1.8(v.73.3不支持Java9)<br><em>注意如果使用brew安装Java的话，默认安装的是最新版本即Java9，与Jenkins2.73有兼容问题。</em></li>
-<li><p><a href="https://jenkins.io/" target="_blank" rel="external">Jenkins</a>，采用<a href="https://jenkins.io/download/" target="_blank" rel="external">.war</a>直接运行的方式 v2.73.3</p>
+<li><p><a href="https://jenkins.io/" target="_blank" rel="noopener">Jenkins</a>，采用<a href="https://jenkins.io/download/" target="_blank" rel="noopener">.war</a>直接运行的方式 v2.73.3</p>
 <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="keyword">java </span>-<span class="keyword">jar </span><span class="keyword">jenkins.war</span></div></pre></td></tr></table></figure>
 </li>
-<li><p><a href="https://brew.sh/" target="_blank" rel="external">brew</a></p>
+<li><p><a href="https://brew.sh/" target="_blank" rel="noopener">brew</a></p>
 </li>
-<li><a href="https://docs.fastlane.tools/" target="_blank" rel="external">fastlane</a> v2.66.2<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="keyword">brew </span>cask <span class="keyword">install </span>fastlane</div></pre></td></tr></table></figure>
+<li><a href="https://docs.fastlane.tools/" target="_blank" rel="noopener">fastlane</a> v2.66.2<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="keyword">brew </span>cask <span class="keyword">install </span>fastlane</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <p><em>注意修改git忽略文件</em>，忽略以下文件<br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## fastlane</span></div><div class="line">fastlane/report.<span class="keyword">xml</span></div><div class="line"><span class="title">fastlane</span>/Preview.html</div><div class="line">fastlane/screenshots</div><div class="line">fastlane/test_output</div></pre></td></tr></table></figure></p>
@@ -419,7 +421,7 @@
 </li>
 <li><p>秘钥设置<br><img src="http://7xq1mp.com1.z0.glb.clouddn.com/credentials-1.jpg" alt="选择设置秘钥"><br><img src="http://7xq1mp.com1.z0.glb.clouddn.com/credentials-2.jpg" alt="添加秘钥"><br><img src="http://7xq1mp.com1.z0.glb.clouddn.com/credentials-3.jpg" alt="选择秘钥方式"><br><img src="http://7xq1mp.com1.z0.glb.clouddn.com/credentials-4.jpg" alt="输入秘钥信息"></p>
 </li>
-<li><p>配置项目<br><img src="http://7xq1mp.com1.z0.glb.clouddn.com/jenkins_new_project-1.jpg" alt="新建项目"><br><img src="http://7xq1mp.com1.z0.glb.clouddn.com/jenkins_new_project-2.jpg" alt="填写项目名字"><br><img src="http://7xq1mp.com1.z0.glb.clouddn.com/jenkins_new_project-3.jpg" alt="项目基本信息"><br><img src="http://7xq1mp.com1.z0.glb.clouddn.com/jenkins_new_project-4.jpg" alt="源码管理"><br><a href="https://open.coding.net/ci/jenkins/" target="_blank" rel="external">Coding-Jenkins文档</a><br><img src="http://7xq1mp.com1.z0.glb.clouddn.com/jenkins_new_project-5.jpg" alt="源码管理-额外信息"><br><img src="http://7xq1mp.com1.z0.glb.clouddn.com/jenkins_new_project-6.jpg" alt="触发器"><br><img src="http://7xq1mp.com1.z0.glb.clouddn.com/jenkins_new_project-7.jpg" alt="构建"><br><img src="http://7xq1mp.com1.z0.glb.clouddn.com/jenkins_new_project-8.jpg" alt="构建-脚本"><br><img src="http://7xq1mp.com1.z0.glb.clouddn.com/jenkins_new_project-9.jpg" alt="构建后操作-钉钉"><br><img src="http://7xq1mp.com1.z0.glb.clouddn.com/jenkins_new_project-10.jpg" alt="构建后操作-钉钉"><br><a href="https://open-doc.dingtalk.com/docs/doc.htm?treeId=257&amp;articleId=105735&amp;docType=1" target="_blank" rel="external">钉钉聊天机器人文档</a></p>
+<li><p>配置项目<br><img src="http://7xq1mp.com1.z0.glb.clouddn.com/jenkins_new_project-1.jpg" alt="新建项目"><br><img src="http://7xq1mp.com1.z0.glb.clouddn.com/jenkins_new_project-2.jpg" alt="填写项目名字"><br><img src="http://7xq1mp.com1.z0.glb.clouddn.com/jenkins_new_project-3.jpg" alt="项目基本信息"><br><img src="http://7xq1mp.com1.z0.glb.clouddn.com/jenkins_new_project-4.jpg" alt="源码管理"><br><a href="https://open.coding.net/ci/jenkins/" target="_blank" rel="noopener">Coding-Jenkins文档</a><br><img src="http://7xq1mp.com1.z0.glb.clouddn.com/jenkins_new_project-5.jpg" alt="源码管理-额外信息"><br><img src="http://7xq1mp.com1.z0.glb.clouddn.com/jenkins_new_project-6.jpg" alt="触发器"><br><img src="http://7xq1mp.com1.z0.glb.clouddn.com/jenkins_new_project-7.jpg" alt="构建"><br><img src="http://7xq1mp.com1.z0.glb.clouddn.com/jenkins_new_project-8.jpg" alt="构建-脚本"><br><img src="http://7xq1mp.com1.z0.glb.clouddn.com/jenkins_new_project-9.jpg" alt="构建后操作-钉钉"><br><img src="http://7xq1mp.com1.z0.glb.clouddn.com/jenkins_new_project-10.jpg" alt="构建后操作-钉钉"><br><a href="https://open-doc.dingtalk.com/docs/doc.htm?treeId=257&amp;articleId=105735&amp;docType=1" target="_blank" rel="noopener">钉钉聊天机器人文档</a></p>
 </li>
 </ul>
 <h2 id="iOS"><a href="#iOS" class="headerlink" title="iOS"></a>iOS</h2><h3 id="fastlane"><a href="#fastlane" class="headerlink" title="fastlane"></a>fastlane</h3><figure class="highlight dos"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> <span class="built_in">path</span>\to\project-<span class="built_in">dir</span></div><div class="line">$ fastlane init</div></pre></td></tr></table></figure>
@@ -448,9 +450,9 @@
           
             <a href="/tags/iOS/" rel="tag"># iOS</a>
           
-            <a href="/tags/Android/" rel="tag"># Android</a>
-          
             <a href="/tags/Jenkins/" rel="tag"># Jenkins</a>
+          
+            <a href="/tags/Android/" rel="tag"># Android</a>
           
             <a href="/tags/fastlane/" rel="tag"># fastlane</a>
           
@@ -478,6 +480,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/22/swift-arc4random/" rel="prev" title="arc4random转Int在32位机器上闪退问题">
+                arc4random转Int在32位机器上闪退问题 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -571,7 +577,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -655,7 +661,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -950,6 +956,8 @@
   </script>
 
 
+
+  
 
   
 

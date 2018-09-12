@@ -82,11 +82,13 @@
 
 
 <meta name="description" content="“Let’s Encrypt”提供免费的TLS/SSL证书，本文简要说明配置证书过程。参考">
+<meta name="keywords" content="TLS&#x2F;SSL,Let&#39;s Encrypt,Nginx">
 <meta property="og:type" content="article">
 <meta property="og:title" content="给自己的Nginx服务器配置免费的https证书">
 <meta property="og:url" content="http://yangdq.com/2017/10/19/letsencrypt-nginx/index.html">
 <meta property="og:site_name" content="杨冬青的笔记">
 <meta property="og:description" content="“Let’s Encrypt”提供免费的TLS/SSL证书，本文简要说明配置证书过程。参考">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-10-19T12:58:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="给自己的Nginx服务器配置免费的https证书">
@@ -373,13 +375,13 @@
       
 
       
-        <p>“Let’s Encrypt”提供免费的TLS/SSL证书，本文简要说明配置证书过程。<br><a href="https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-16-04" target="_blank" rel="external">参考</a></p>
+        <p>“Let’s Encrypt”提供免费的TLS/SSL证书，本文简要说明配置证书过程。<br><a href="https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-16-04" target="_blank" rel="noopener">参考</a></p>
 <a id="more"></a>
 <h3 id="配置证书"><a href="#配置证书" class="headerlink" title="配置证书"></a>配置证书</h3><ol>
-<li>安装<a href="https://certbot.eff.org/" target="_blank" rel="external">certbot</a>，certbot是一个命令行工具，可以很方便的配置”Let’s Encrypt”证书。</li>
+<li>安装<a href="https://certbot.eff.org/" target="_blank" rel="noopener">certbot</a>，certbot是一个命令行工具，可以很方便的配置”Let’s Encrypt”证书。</li>
 </ol>
 <ul>
-<li>访问 <a href="https://certbot.eff.org/" target="_blank" rel="external">https://certbot.eff.org/</a> 然后根据自己的服务器类型还有操作系统类型，选择不同配置。<br><a href="http://7xq1mp.com1.z0.glb.clouddn.com/letsencrypt-nginx-01.jpg" target="_blank" rel="external">选择服务器-操作系统</a></li>
+<li>访问 <a href="https://certbot.eff.org/" target="_blank" rel="noopener">https://certbot.eff.org/</a> 然后根据自己的服务器类型还有操作系统类型，选择不同配置。<br><a href="http://7xq1mp.com1.z0.glb.clouddn.com/letsencrypt-nginx-01.jpg" target="_blank" rel="noopener">选择服务器-操作系统</a></li>
 </ul>
 <p>下面是Nginx+Ubuntu 16.04安装certbot的过程</p>
 <figure class="highlight smali"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-get update</div><div class="line">$ sudo apt-get install software-properties-common</div><div class="line">$ sudo<span class="built_in"> add-apt-repository </span>ppa:certbot/certbot</div><div class="line">$ sudo apt-get update</div><div class="line">$ sudo apt-get install python-certbot-nginx</div></pre></td></tr></table></figure>
@@ -395,7 +397,7 @@
 </ol>
 <p>生成的证书位置<em>/etc/letsencrypt</em>,注意备份此目录。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ nginx <span class="_">-s</span> reload</div></pre></td></tr></table></figure></p>
 <ol>
-<li>配置Diffie-Hellman Parameters<br>现在可以使用<a href="https://www.ssllabs.com/ssltest/index.html" target="_blank" rel="external">SSL Labs Server Test</a>测试网站安全性。测试结果为B，配置Diffie-Hellman Parameters后，可以让网站安全性提升到A。<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ mkdir <span class="regexp">/etc/</span>letsencrypt<span class="regexp">/certs/</span></div></pre></td></tr></table></figure>
+<li>配置Diffie-Hellman Parameters<br>现在可以使用<a href="https://www.ssllabs.com/ssltest/index.html" target="_blank" rel="noopener">SSL Labs Server Test</a>测试网站安全性。测试结果为B，配置Diffie-Hellman Parameters后，可以让网站安全性提升到A。<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ mkdir <span class="regexp">/etc/</span>letsencrypt<span class="regexp">/certs/</span></div></pre></td></tr></table></figure>
 </li>
 </ol>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo openssl dhparam -out <span class="regexp">/etc/</span>letsencrypt<span class="regexp">/certs/</span>dhparam.pem <span class="number">2048</span></div></pre></td></tr></table></figure>
@@ -545,7 +547,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -629,7 +631,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -924,6 +926,8 @@
   </script>
 
 
+
+  
 
   
 
